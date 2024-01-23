@@ -54,7 +54,7 @@ public class OrderController {
         return ResponseEntity.ok(updatedOrder);
     }
 
-    @DeleteMapping()
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable String id) {
         useCase.deleteById(id);
         return ResponseEntity.noContent().build();

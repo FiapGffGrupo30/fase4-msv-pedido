@@ -27,7 +27,7 @@ public record Order(String id, Long customerId, List<Item> items, Boolean paid) 
         return items.stream().mapToInt(Item::quantity).sum();
     }
 
-    public Order updateTo(Order order) {
+    Order updateTo(Order order) {
         List<Item> items = Coalesce.of(order.items, this.items);
         Boolean paid = Coalesce.of(order.paid, this.paid);
         return new Order(this.id, this.customerId, items, paid);
