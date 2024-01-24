@@ -2,12 +2,15 @@ package br.fiap.gff.orders.infra.data.repositories.daos;
 
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import br.fiap.gff.orders.domain.order.Order;
 import br.fiap.gff.orders.domain.order.OrderDAO;
 import br.fiap.gff.orders.infra.data.mappers.OrderMapper;
 import br.fiap.gff.orders.infra.data.models.OrderModel;
 import br.fiap.gff.orders.infra.data.repositories.OrderRepository;
 
+@Component
 public class OrderDaoImpl extends BaseDaoImpl<Order, OrderModel> implements OrderDAO {
 
     private final OrderRepository repository;

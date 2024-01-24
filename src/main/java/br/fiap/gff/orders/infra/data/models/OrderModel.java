@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document
+@Document(collection = "orders")
 public class OrderModel {
 
     @Id
