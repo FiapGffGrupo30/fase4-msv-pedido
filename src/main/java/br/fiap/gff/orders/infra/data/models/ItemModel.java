@@ -18,4 +18,6 @@ public class ItemModel {
     private Double price;
 
     private Integer quantity;
+
+    private Long categoryId;
 }
