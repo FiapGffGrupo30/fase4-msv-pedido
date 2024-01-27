@@ -68,7 +68,7 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
 
     - name: Download task definition
-        run: aws ecs describe-task-definition --task-definition gff-task-definition:10 > taskdef.json
+      run: aws ecs describe-task-definition --task-definition gff-task-definition:10 > taskdef.json
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
