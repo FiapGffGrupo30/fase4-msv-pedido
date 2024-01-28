@@ -80,5 +80,5 @@ jobs:
 
     - name: Deploy Amazon ECS task definition
       run: |
-        TASK_DEF=$(cat taskdef.json | jq '.taskDefinition')
+        TASK_DEF=$(cat taskdef.json | jq -r '.taskDefinition.taskDefinitionArn')
         aws ecs update-service --cluster cluster-gff --service gff-pedido-svc --task-definition "$TASK_DEF"
