@@ -71,7 +71,7 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
 
     - name: Show image URI
-      run: echo ${{ env.IMAGE_URI }}
+      run: echo ${{ needs.build.steps.build-image.outputs }}
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
