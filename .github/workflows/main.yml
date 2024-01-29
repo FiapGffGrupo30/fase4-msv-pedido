@@ -77,6 +77,8 @@ jobs:
         task-definition: gff-task-definition-pedido:2
         container-name: gff-pedido
         image: ${{ env.IMAGE_URI }}
+      
+    - name: Show image URI
       run: echo ${{ env.IMAGE_URI }}
       
     - name: Deploy Amazon ECS task definition
