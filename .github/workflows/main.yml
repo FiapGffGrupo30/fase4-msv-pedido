@@ -53,7 +53,7 @@ jobs:
         docker tag $ECR_REPOSITORY:$IMAGE_TAG $IMAGE_URI
         docker push $IMAGE_URI
 
-        echo "IMAGE_URI=$IMAGE_URI" >> $GITHUB_ENV
+        echo "image=$IMAGE_URI" >> $GITHUB_ENV
 
   deploy:
     needs: build
