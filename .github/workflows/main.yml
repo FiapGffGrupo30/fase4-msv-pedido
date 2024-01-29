@@ -70,6 +70,9 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_REGION }}
 
+    - name: Show image URI
+      run: echo ${{ env.IMAGE_URI }}
+
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@c804dfbdd57f713b6c079302a4c01db7017a36fc
@@ -77,9 +80,6 @@ jobs:
         task-definition: gff-task-definition-pedido:2
         container-name: gff-pedido
         image: ${{ env.IMAGE_URI }}
-      
-    - name: Show image URI
-      run: echo ${{ env.IMAGE_URI }}
       
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@df9643053eda01f169e64a0e60233aacca83799a
