@@ -67,18 +67,34 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ secrets.AWS_REGION }}
 
-    - name: Download task definition
-      run: aws ecs describe-task-definition --task-definition gff-task-definition-pedido:2  --query "taskDefinition" > taskdef.json
-
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
-      uses: aws-actions/amazon-ecs-render-task-definition@v1
+      uses: aws-actions/amazon-ecs-render-task-definition@c804dfbdd57f713b6c079302a4c01db7017a36fc
       with:
-        task-definition: taskdef.json
+        task-definition: gff-task-definition-pedido:2
         container-name: gff-pedido
-        image: ${{ steps.login-ecr.outputs.registry }}/gff-repository:gff-pedido
+        image: ${{ steps.login-ecr.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
-      run: |
-        TASK_DEF=$(cat taskdef.json | jq -r '.taskDefinition.taskDefinitionArn')
-        aws ecs update-service --cluster cluster-gff --service gff-pedido-svc-new1 --task-definition "$TASK_DEF"
+      uses: aws-actions/amazon-ecs-deploy-task-definition@df9643053eda01f169e64a0e60233aacca83799a
+      with:
+        task-definition: ${{ steps.task-def.outputs.task-definition }}
+        service: gff-pedido-svc-001
+        cluster: gff-pedido
+        wait-for-service-stability: true
+
+#    - name: Download task definition
+#      run: aws ecs describe-task-definition --task-definition gff-task-definition-pedido:2  --query "taskDefinition" > taskdef.json
+
+#    - name: Fill in the new image ID in the Amazon ECS task definition
+#      id: task-def
+#      uses: aws-actions/amazon-ecs-render-task-definition@v1
+#      with:
+#        task-definition: taskdef.json
+#        container-name: gff-pedido
+#        image: ${{ steps.login-ecr.outputs.registry }}/gff-repository:gff-pedido
+
+#    - name: Deploy Amazon ECS task definition
+#      run: |
+#        TASK_DEF=$(cat taskdef.json | jq -r '.taskDefinition.taskDefinitionArn')
+#        aws ecs update-service --cluster cluster-gff --service gff-pedido-svc-new1 --task-definition "$TASK_DEF"
