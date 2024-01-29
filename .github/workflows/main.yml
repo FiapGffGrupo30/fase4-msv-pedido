@@ -65,7 +65,7 @@ jobs:
     environment: production
 
     steps:
-      - run: echo ${{needs.build.outputs.output1}}
+    - run: echo ${{needs.build.outputs.output1}}
 
     - uses: actions/checkout@v2
 
