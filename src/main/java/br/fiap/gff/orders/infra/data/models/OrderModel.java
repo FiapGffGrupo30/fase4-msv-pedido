@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import br.fiap.gff.orders.domain.order.enums.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,4 +26,6 @@ public class OrderModel {
     private List<ItemModel> items;
 
     private Boolean paid;
+
+    private OrderStatus status;
 }
