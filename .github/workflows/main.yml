@@ -79,7 +79,7 @@ jobs:
       with:
         task-definition: gff-task-definition-pedidos:2
         container-name: gff-repository-pedidos
-        image: ${{ steps.build-image.outputs.image }} 
+        image: ${{ needs.deploy.steps.build-image.outputs.image }} 
     
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
