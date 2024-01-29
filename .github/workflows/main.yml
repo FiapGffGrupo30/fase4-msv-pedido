@@ -12,6 +12,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    outputs:
+      output1: ${{ steps.build-image.outputs.image }}
+
     steps:
     - uses: actions/checkout@v2
 
@@ -43,6 +46,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@62f4f872db3836360b72999f4b87f1ff13310f3a
 
     - name: Build and Push Docker image to Amazon ECR
+      id: build-image
       run: |
         ECR_REGISTRY=${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY=gff-repository-pedidos
@@ -61,6 +65,8 @@ jobs:
     environment: production
 
     steps:
+      - run: echo ${{needs.build.outputs.output1}}
+
     - uses: actions/checkout@v2
 
     - name: Configure AWS credentials
