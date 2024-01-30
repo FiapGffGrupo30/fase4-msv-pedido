@@ -22,15 +22,16 @@ Após instalar as tecnologias segua os seguintes passos:
 <br>
 - 1° - Baixe o diretório para uma pasta local de sua máquina.
 - 2° - Abra o terminal no diretório na qual você fez o download da pasta do programa.
-- 3° - Utilize o comando a seguir para subir para gerar uma imagem e subir para a AWS
+- 3° - Utilize o comando a seguir para para buildar a imagem localmente
 <br>
 
 ```bash
     docker build -t gffpedidos:latest .
 ```
-Desta forma a aplicação subirá para a AWS e você poderá rodar ela usando 
+4º Após realizar o build é possivel executar a imagem usando o seguinte comando:
+
 ```bash
-docker container run hello-world
+docker container run gffpedidos
 ```
 
 Para acessar o Swagger da aplicação acesse em um browser de sua preferência o link:
