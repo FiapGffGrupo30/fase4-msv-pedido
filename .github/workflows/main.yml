@@ -12,8 +12,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    outputs:
-      output1: ${{ steps.build-image.outputs.image }}
+#    outputs:
+#      output1: ${{ steps.build-image.outputs.image }}
 
     steps:
     - uses: actions/checkout@v2
@@ -59,13 +59,13 @@ jobs:
 
         echo "image=$IMAGE_URI" >> $GITHUB_ENV
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment: production
+#  deploy:
+#    needs: build
+#    runs-on: ubuntu-latest
+#    environment: production
 
-    steps:
-    - run: echo ${{needs.build.outputs.output1}}
+#    steps:
+#    - run: echo ${{needs.build.outputs.output1}}
 
     - uses: actions/checkout@v2
 
@@ -77,7 +77,7 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
 
     - name: Show image URI
-      run: ${{ needs.build.outputs.output1.image }}
+      run: echo ${{ steps.build-image.outputs.image }}
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
@@ -85,7 +85,7 @@ jobs:
       with:
         task-definition: gff-task-definition-pedidos:2
         container-name: gff-repository-pedidos
-        image: ${{ needs.build.steps.build-image.outputs.output1.image }} 
+        image: ${{ steps.build-image.outputs.image }} 
     
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
