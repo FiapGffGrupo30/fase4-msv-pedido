@@ -1,10 +1,9 @@
-@ -0,0 +1,41 @@
 # **Pedido - GFF**
 
 Api responsável por gerenciar os pedidos da aplicação de Sistema de Gerenciamento de Fast Food.
 
 ## **Objetivo**
-A API de pedidos possui 
+A API de pedidos possui as ferramentas que possibilitam ao cliente, criar, editar, pesquisar, alterar e deletar pedidos.
 
 ## **Tecnologias utilizadas**
 - [Git](https://git-scm.com/downloads)
