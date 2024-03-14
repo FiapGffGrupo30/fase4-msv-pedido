@@ -14,4 +14,5 @@ ENV MONGO_USER=gff-nosql
 ENV MONGO_PASS=j0Oj1LfMZzfvkpRy
 VOLUME /tmp
 COPY --from=build home/app/target/*.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENV JVM_ARGS="-Dspring.profiles.active=prod"
+ENTRYPOINT ["java","-jar","${JVM_ARGS}","/app.jar"]
