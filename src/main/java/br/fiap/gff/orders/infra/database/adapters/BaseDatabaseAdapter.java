@@ -1,12 +1,11 @@
-package br.fiap.gff.orders.infra.database;
-
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.data.mongodb.repository.MongoRepository;
+package br.fiap.gff.orders.infra.database.adapters;
 
 import br.fiap.gff.orders.infra.database.mappers.MapperFactory;
 import br.fiap.gff.orders.infra.shared.contracts.BaseDatabasePort;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import java.util.List;
+import java.util.Optional;
 
 public abstract class BaseDatabaseAdapter<E, M> implements BaseDatabasePort<E> {
 

@@ -1,9 +1,9 @@
 package br.fiap.gff.orders.application.dto;
 
-import java.util.List;
-
 import br.fiap.gff.orders.domain.entities.Order;
 import br.fiap.gff.orders.domain.enums.OrderStatus;
+
+import java.util.List;
 
 public record RequestOrderDTO(Long customerId, List<RequestItemDTO> items) {
     public Order toOrder() {

@@ -1,14 +1,13 @@
-package br.fiap.gff.orders.infra.database;
-
-import java.util.List;
-
-import org.springframework.stereotype.Component;
+package br.fiap.gff.orders.infra.database.adapters;
 
 import br.fiap.gff.orders.domain.entities.Order;
 import br.fiap.gff.orders.domain.ports.OrderDatabasePort;
 import br.fiap.gff.orders.infra.database.mappers.OrderMapper;
 import br.fiap.gff.orders.infra.database.models.OrderModel;
 import br.fiap.gff.orders.infra.database.repositories.OrderRepository;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class OrderDatabaseAdapter extends BaseDatabaseAdapter<Order, OrderModel> implements OrderDatabasePort {

@@ -1,14 +1,13 @@
 package br.fiap.gff.orders.domain.usecases;
 
-import java.util.List;
-
-import br.fiap.gff.orders.application.dto.RequestOrderDTO;
 import br.fiap.gff.orders.domain.entities.Order;
 
-public interface OrderUseCase {
-    Order create(RequestOrderDTO dto);
+import java.util.List;
 
-    Order update(String id, RequestOrderDTO dto);
+public interface OrderUseCase {
+    Order create(Order order);
+
+    Order update(String id, Order newOrder);
 
     void deleteById(String id);
 

@@ -1,15 +1,13 @@
 package br.fiap.gff.orders.application.services;
 
-import java.util.List;
-
 import br.fiap.gff.orders.domain.entities.Order;
+import br.fiap.gff.orders.domain.exceptions.OrderNotFoundException;
 import br.fiap.gff.orders.domain.ports.OrderDatabasePort;
 import br.fiap.gff.orders.domain.usecases.OrderUseCase;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import br.fiap.gff.orders.application.dto.RequestOrderDTO;
-import br.fiap.gff.orders.domain.exceptions.OrderNotFoundException;
-import lombok.RequiredArgsConstructor;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -18,14 +16,14 @@ public class OrderService implements OrderUseCase {
     private final OrderDatabasePort databasePort;
 
     @Override
-    public Order create(RequestOrderDTO dto) {
-        return databasePort.save(dto.toOrder());
+    public Order create(Order order) {
+        return databasePort.save(order);
     }
 
     @Override
-    public Order update(String id, RequestOrderDTO dto) {
+    public Order update(String id, Order newOrder) {
         Order order = findById(id);
-        Order updatedOrder = order.updateTo(dto.toOrder());
+        Order updatedOrder = order.updateTo(newOrder);
         return databasePort.save(updatedOrder);
     }
 

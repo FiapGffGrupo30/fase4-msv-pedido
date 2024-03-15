@@ -1,11 +1,16 @@
 package br.fiap.gff.orders.domain.entities;
 
-import java.util.List;
-
 import br.fiap.gff.orders.domain.enums.OrderStatus;
 import br.fiap.gff.orders.infra.shared.utils.Coalesce;
 
-public record Order(String id, Long customerId, List<Item> items, Boolean paid, OrderStatus status) {
+import java.util.List;
+
+public record Order(
+        String id,
+        Long customerId,
+        List<Item> items,
+        Boolean paid,
+        OrderStatus status) {
 
     public Order setOrderPaid() {
         return new Order(id, customerId, items, true, OrderStatus.CREATED);

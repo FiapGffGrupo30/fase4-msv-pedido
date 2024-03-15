@@ -1,6 +1,5 @@
 package br.fiap.gff.orders.infra.database.models;
 
-import br.fiap.gff.orders.domain.enums.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,21 +9,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
+@Document
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
-@Document(collection = "orders")
-public class OrderModel {
+@Builder(toBuilder = true)
+public class CategoryModel {
 
     @Id
     private String id;
 
-    private Long customerId;
+    private String name;
 
-    private List<ItemModel> items;
+    private String description;
 
-    private Boolean paid;
+    List<ProductModel> products;
 
-    private OrderStatus status;
 }

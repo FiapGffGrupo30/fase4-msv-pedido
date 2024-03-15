@@ -1,4 +1,4 @@
-package br.fiap.gff.orders.infra.shared.exceptions;
+package br.fiap.gff.orders.domain.exceptions;
 
 public class BussinessException extends RuntimeException {
 

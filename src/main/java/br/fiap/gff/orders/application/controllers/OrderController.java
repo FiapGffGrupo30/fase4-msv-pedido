@@ -1,27 +1,20 @@
 package br.fiap.gff.orders.application.controllers;
 
-import java.util.List;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
+import br.fiap.gff.orders.application.dto.RequestOrderDTO;
 import br.fiap.gff.orders.domain.entities.Order;
 import br.fiap.gff.orders.domain.usecases.OrderUseCase;
-import br.fiap.gff.orders.application.dto.RequestOrderDTO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/orders")
 @RequiredArgsConstructor
 public class OrderController {
+
     private final OrderUseCase useCase;
 
     @GetMapping()
@@ -41,16 +34,16 @@ public class OrderController {
 
     @PostMapping()
     public ResponseEntity<Order> create(@RequestBody RequestOrderDTO dto) {
-        Order createdOrder = useCase.create(dto);
+        Order createdOrder = useCase.create(dto.toOrder());
         return ResponseEntity.created(
-                ServletUriComponentsBuilder.fromCurrentContextPath().path("/{id}").buildAndExpand(createdOrder.id())
-                        .toUri())
+                        ServletUriComponentsBuilder.fromCurrentContextPath().path("/{id}").buildAndExpand(createdOrder.id())
+                                .toUri())
                 .body(createdOrder);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Order> update(@PathVariable String id, @RequestBody RequestOrderDTO dto) {
-        Order updatedOrder = useCase.update(id, dto);
+        Order updatedOrder = useCase.update(id, dto.toOrder());
         return ResponseEntity.ok(updatedOrder);
     }
 
