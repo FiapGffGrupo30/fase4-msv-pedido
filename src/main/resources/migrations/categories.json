@@ -1,0 +1,22 @@
+[
+  {
+    "id": "6329e8d74345678901234567",
+    "name": "Hambúrgueres",
+    "description": "Sanduíches com pão, carne bovina, queijo, salada e outros acompanhamentos."
+  },
+  {
+    "id": "65f778eb22b220d5b0a3cdc4",
+    "name": "Adicionais",
+    "description": "Outros adicionais ao lanche"
+  },
+  {
+    "id": "6329e8d74345678901234568",
+    "name": "Bebidas",
+    "description": "Refrigerantes, sucos, água, café e outras opções para beber."
+  },
+  {
+    "id": "6329e8d74345678901234569",
+    "name": "Sorvetes",
+    "description": "Sobremesas geladas à base de leite, com diversos sabores e toppings."
+  }
+]
