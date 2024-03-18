@@ -25,4 +25,6 @@ public class ProductModel {
 
     private Long stock;
 
+    private String categoryId;
+
 }

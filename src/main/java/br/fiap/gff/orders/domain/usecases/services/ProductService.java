@@ -1,4 +1,4 @@
-package br.fiap.gff.orders.application.services;
+package br.fiap.gff.orders.domain.usecases.services;
 
 import br.fiap.gff.orders.domain.entities.Product;
 import br.fiap.gff.orders.domain.exceptions.ProductNotFoundException;

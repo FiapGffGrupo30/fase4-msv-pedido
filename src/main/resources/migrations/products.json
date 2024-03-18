@@ -1,0 +1,58 @@
+[
+  {
+    "id":  "65f77064457ea225272306d0",
+    "name": "Hambúrguer X-Bacon",
+    "description": "Pão, carne bovina, queijo cheddar, bacon, alface, tomate e cebola.",
+    "price": 15.90,
+    "stock": 50,
+    "categoryId": "6329e8d74345678901234567"
+  },
+  {
+    "id":  "65f77141cdb7f6545ae49724",
+    "name": "Cheeseburger",
+    "description": "Pão, carne bovina, queijo cheddar, alface, tomate e cebola.",
+    "price": 12.90,
+    "stock": 60,
+    "categoryId": "6329e8d74345678901234567"
+  },
+  {
+    "id":  "6329e8d74345678901234569",
+    "name": "X-Burguer",
+    "description": "Pão, carne bovina, queijo cheddar, alface, tomate e cebola.",
+    "price": 10.90,
+    "stock": 70,
+    "categoryId": "6329e8d74345678901234567"
+  },
+  {
+    "id":  "65f77926bfa1cd5875905363",
+    "name": "Batata Frita",
+    "description": "Batatas fritas crocantes e salgadas.",
+    "price": 7.90,
+    "stock": 80,
+    "categoryId": "65f778eb22b220d5b0a3cdc4"
+  },
+  {
+    "id":  "65f779b06b0bf2c4b70e0687",
+    "name": "Refrigerante",
+    "description": "Refrigerante lata 350ml.",
+    "price": 4.90,
+    "stock": 100,
+    "categoryId": "6329e8d74345678901234568"
+  },
+  {
+    "id": "65f779e16d125d330e1f868a",
+    "name": "Suco de Laranja",
+    "description": "Suco de laranja natural 300ml.",
+    "price": 6.90,
+    "stock": 40,
+    "categoryId": "6329e8d74345678901234568"
+  },
+  {
+    "id":  "6329e8d74345678901234572",
+    "name": "Sundaes",
+    "description": "Sorvete com calda de chocolate e morango.",
+    "price": 10.90,
+    "stock": 30,
+    "categoryId": "6329e8d74345678901234569"
+  }
+]
